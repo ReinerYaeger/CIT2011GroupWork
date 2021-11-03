@@ -1,5 +1,6 @@
 var PlayersData;
 var correctAns;
+var playerInfo;
 
 
 // Task 2
@@ -70,7 +71,7 @@ function PlayGame() {
     document.getElementById("numvalue2").value = seed2;
     document.getElementById("usrAns").value  = "";
 }
-
+//Task 6
 function checkAnswer(){
     var usrAns = document.getElementById('usrAns').value;
     console.log(usrAns);
@@ -78,7 +79,21 @@ function checkAnswer(){
 
     if(usrAns == correctAns){
        document.getElementById("answerResponse").innerHtml = "Correct!";
+       alert("Your answer is " +document.getElementById("answerResponse").innerHtml); 
+	   return true;
     }else{
-        document.getElementById("answerResponse").innerHtml = "Incorrect";    
+        document.getElementById("answerResponse").innerHtml = "Incorrect";
+        alert("Your answer is "+ document.getElementById("answerResponse").innerHtml); 
+		return false; 
     }
+    document.getElementById("numvalue1").value = seed1;
+    document.getElementById("numvalue2").value = seed2;
+    document.getElementById("usrAns").value  = "";
+    
+    PlayersData= [seed1,seed2,usrAns, document.getElementById("answerResponse").innerHtml];
 }
+//Task 9
+function playerInfo(){
+   document.getElementById("showpercentage").value= fName + " "+ lName + " ";    
+}
+
