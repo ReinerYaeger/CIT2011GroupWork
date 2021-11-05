@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset='utf-8'>
+	<meta http-equiv='X-UA-Compatible' content='IE=edge'>
+	<title>Poly Disco</title>
+	<link rel='stylesheet' href='style/stylesheet.css'>
+
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&family=Roboto+Mono&family=Zen+Kurenaido&display=swap" rel="stylesheet"> 
+	<!-- <link rel='icon' href='⨴'> -->
+	<script type='text/javascript' src='script/polydisco.js' >
+	</script>
+</head>
+<body>
+
+	<div class='main'>
+		<div id='header'>
+			<nav>
+				<a href=''></a>
+			</nav>
+
+
+		</div>
+		<div id='body'>
+			<!--Task 1  -->
+			<form name = 'registrationForm' id='nameForm'>
+				<section id="notice"></section>
+				<label>First Name </label><br>
+				<input class='ffrom' id='fName' type='text' minlength='3' required><br><br>
+				<label>Last Name </label><br>
+				<input class='ffrom' id='lName' type='text' minlength='3' required><br><br>
+				<label >Date of Birth</label><br>
+				<input class='ffrom' id='dob' type='date' min='2009-01-01' max='2013-12-31' ><br><br>
+				<label >Gender</label><br>
+            <select id='gender'>
+					  <option value='' disabled selected>Select your option</option>
+					  <option class='ffrom' value='female'>Female</option>
+					  <option class='ffrom' value='male'>Male</option>
+            </select><br><br>
+				<label>Email</label><br>
+				<input title='Must be a gmail.com domain' class='ffrom' type='email' id='email'  >
+				<!-- pattern='@[gmail.com]' -->
+				<br><br>
+				<!--Task 9-->
+				<label hidden="true" id="showpercentageLabel">Percentage Score</label><section id="addBreak"></section>
+				<textarea id='showpercentage' value="" cols="53" rows="4" hidden="true" disabled ></textarea>
+				<section id="addBreak"></section><section id="addBreak"></section>
+				<label hidden="true" id="showallplayerslb">All Players</label><section id="addBreak"></section>
+				<textarea id='showallplayers' value="" cols="53" rows="4" hidden="true" disabled ></textarea>
+				<section id="addBreak"></section>
+
+				<!-- Task 3 -->
+				<button class='ffrom' type='button' id='registerButton' onclick='Register()' >Register</button>&nbsp;
+				<button type='button' id='startBtn' onclick='PlayGame()' disabled >Start</button>&nbsp;
+			</form>
+		</div>
+
+		<div id='footer'>
+
+		</div>
+	</div>
+	
+	<div id='modalBg' class='modalBg'> 
+		<div class='modal'>
+			<form name='modalForm'>
+				<section id="answerResponse"> </section>
+				<input class='question' id='numvalue1' type='text' disabled readonly>
+				<span class="multiplySign">×</span>
+				<input class='question' type='text' id='numvalue2' disabled readonly><br><br>
+
+				<input type='number' id='usrAns'><br><br><br>
+				<button type='button' onclick='checkAnswer()' id='acceptBtn' >Accept</button>
+				<!--Task 8-->
+				<button type='button' onclick='PlayGame()' class ='button' id='nextBtn'>Next</button>
+				<!--Task 7-->
+				<button type='button' onclick='disableModal()' id='endBtn' >End</button> 
+			</form>
+		</div>
+	</div>
+
+</body>
+</html>
