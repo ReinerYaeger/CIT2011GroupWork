@@ -97,7 +97,6 @@ function PlayGame() {
 //TASK 6	
 function checkAnswer(){
     var usrAns = document.getElementById('usrAns').value;
-    document.getElementById("answerResponse").innerHTML = "";
                 //  0      1    2    3     4       5             6
     //PlayersData = [fName,lName,age,gender,email,usrCorrectAns,usrIncorrectAns];
     console.log("Correct: "+usrCorrectAns);
