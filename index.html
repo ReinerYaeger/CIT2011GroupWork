@@ -1,31 +1,29 @@
 <!DOCTYPE html>
 <html>
-<head>
+<head lang="">
 	<meta charset='utf-8'>
 	<meta http-equiv='X-UA-Compatible' content='IE=edge'>
 	<title>Poly Disco</title>
 	<link rel='stylesheet' href='style/stylesheet.css'>
 
-	<link rel="preconnect" href="https://fonts.googleapis.com">
-	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&family=Roboto+Mono&family=Zen+Kurenaido&display=swap" rel="stylesheet"> 
+	<link rel='preconnect' href='https://fonts.googleapis.com'>
+	<link rel='preconnect' href='https://fonts.gstatic.com' crossorigin>
+	<link href='https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&family=Roboto+Mono&family=Zen+Kurenaido&display=swap' rel='stylesheet'> 
+	<link href='https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@600&display=swap' rel='stylesheet'> 
 	<!-- <link rel='icon' href='⨴'> -->
-	<script type='text/javascript' src='script/polydisco.js' >
+	<script src='script/polydisco.js' >
 	</script>
 </head>
 <body>
 
 	<div class='main'>
-		<div id='header'>
-			<nav>
-				<a href=''></a>
-			</nav>
-
-
-		</div>
 		<div id='body'>
 			<!--Task 1  -->
 			<form name = 'registrationForm' id='nameForm'>
+				<div id='header'>
+					<img src='Assest/header.png' alt="headerImg">
+				</div>
+				<div id='notice'></div>
 				<label>First Name </label><br>
 				<input class='ffrom' id='fName' type='text' minlength='3' required><br><br>
 				<label>Last Name </label><br>
@@ -39,30 +37,49 @@
 					  <option class='ffrom' value='male'>Male</option>
             </select><br><br>
 				<label>Email</label><br>
-				<input title='Must be a gmail.com domain' class='ffrom' type='email' id='email'  >
+				<input pattern='^[a-zA-Z0-9]+@gmail\.com$' title='Must be a gmail.com domain' class='ffrom' type='email' id='email'  >
 				<!-- pattern='@[gmail.com]' -->
 				<br><br>
 				<!--Task 9-->
-				<textarea id='showpercentage' cols="53" rows="4" disabled></textarea>
-				<br><br>	
+
+				<!-- Hidden area -->
+				<div id="hideTextarea" class='hideTextarea'>
+					<label  id='showPercentageLb'>Percentage Score</label><div class='addBreak'></div>
+					<textarea id='showPercentage' cols='53' rows='4'  disabled ></textarea>
+					<div class='addBreak'></div><div class='addBreak'></div>
+					<label id='showAllPlayersLb'>All Players</label><div class='addBreak'></div>
+					<textarea id='showAllPlayers' cols='53' rows='4'  disabled ></textarea>
+					<div class='addBreak'></div><div class='addBreak'></div>
+				</div>
+				<!-- Hidden area End -->
+
 				<!-- Task 3 -->
 				<button class='ffrom' type='button' id='registerButton' onclick='Register()' >Register</button>&nbsp;
 				<button type='button' id='startBtn' onclick='PlayGame()' disabled >Start</button>&nbsp;
-				<button type='button' id='seePercentage' onclick='' disabled >See Percentage</button>&nbsp;
+				<button class='activateModal' type='button' id='percentScoreBtn' onclick='findPercentageScore()' disabled>Percentage Score</button>				
 			</form>
 		</div>
+	</div>
 
-		<div id='footer'>
+	<div id='modalBgChart' class='modalBgChart'>
+		<div id='modalChart'>
 
+			<form>
+				
+			</form>
+			<table>
+
+			</table>
 		</div>
+
 	</div>
 	
 	<div id='modalBg' class='modalBg'> 
 		<div class='modal'>
 			<form name='modalForm'>
-				<section id="answerResponse"> </section>
+				<div id='answerResponse'> </div>
 				<input class='question' id='numvalue1' type='text' disabled readonly>
-				<span class="multiplySign">×</span>
+				<span class='multiplySign'>×</span>
 				<input class='question' type='text' id='numvalue2' disabled readonly><br><br>
 
 				<input type='number' id='usrAns'><br><br><br>
@@ -70,7 +87,7 @@
 				<!--Task 8-->
 				<button type='button' onclick='PlayGame()' class ='button' id='nextBtn'>Next</button>
 				<!--Task 7-->
-				<button type='button' onclick='disableModal()' id='endBtn' >End</button> 
+				<button type='button' onclick='findPercentageScore()' id='endBtn' >End</button> 
 			</form>
 		</div>
 	</div>
