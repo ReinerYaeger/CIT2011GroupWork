@@ -7,7 +7,9 @@ var seed1;
 var seed2;
 var QuestionCounter = 0;
 var Questions=[seed1,seed2,correctAns];
-var playerDataBuffer = [""];
+var playerDataBuffer = [" "];
+var femalegenderpercent=0;
+var malegenderpercent=0;
 
 
 // Task 2
@@ -28,10 +30,15 @@ function Register(){
         document.getElementById("nameForm").scrollIntoView();
         return false;
     }
+    PlayersData = [fName,lName,age];
+	console.log(PlayersData+"firstname last name age"); 
+	
+	//Apart of task 15
+
 
     PlayersData = [fName,lName,age,gender,email,usrCorrectAns,usrIncorrectAns];
     // Apart Task 3
-    enableInput();
+    enableButton();
 }
 
 function disableModal(){ //Disabling modal and activating form and percentage button
@@ -61,11 +68,9 @@ function resetForm(){
 }
 
 function showall(){
-    var allplayerlb = document.getElementById("showAllPlayersLb");
     var hideTextarea = document.getElementById("hideTextarea");
+    var allplayertxt = document.getElementById("showAllPlayers");
     hideTextarea.classList.remove('hideTextarea');
-    
-    allplayertxt.innerHTML = ""; 
     
     playerDataBuffer.push("\n"+PlayersData);
     console.log(playerDataBuffer);
@@ -84,7 +89,7 @@ function calculateAge(){
 }
 
 // Apart Task 3
-function enableInput(){
+function enableButton(){
     var input =document.getElementsByClassName('ffrom');
     var startButton = document.getElementById('startBtn');
     var percentScoreBtn = document.getElementById('percentScoreBtn');
@@ -100,7 +105,7 @@ function enableInput(){
 
 //Task 4
 function PlayGame() {
-    document.getElementById("answerResponse").innerHtml = " ";
+    document.getElementById("answerResponse").innerHtml = '<span> </span>';
 
     document.getElementById('modalBg').className += ' activateModal';
 
@@ -120,11 +125,11 @@ function PlayGame() {
 //TASK 6	
 function checkAnswer(){
     var usrAns = document.getElementById('usrAns').value;
-    document.getElementById("answerResponse").innerHTML = "";
+    document.getElementById("answerResponse").innerHTML = "  ";
                 //  0      1    2    3     4       5             6
     //PlayersData = [fName,lName,age,gender,email,usrCorrectAns,usrIncorrectAns];
     if(usrAns == correctAns){
-        document.getElementById("answerResponse").innerHTML = "<span style='color: green'>CORRECT!</span>";
+        document.getElementById("answerResponse").innerHTML = "<span style='color: green'>CORRECT &#3846;</span>";
         usrCorrectAns+=1;
         PlayersData.splice((PlayersData.length)-2,1,usrCorrectAns);
         console.log("Correct: "+usrCorrectAns);
@@ -151,4 +156,64 @@ function findPercentageScore(){
     document.getElementById("showPercentage").innerHTML = showValue;
     resetForm();
     disableModal();
+}
+
+function showfreq(){
+	var fbar=femalegenderpercent;
+	var mbar=malegenderpercent;
+	document.getElementById("malebar").width=mbar;
+	document.getElementById("femalebar").width=fbar;
+
+	if(usrPercentage<50)
+	{
+	var bar1 = document.getElementById("bar1");
+	let cnt1=0;
+	cnt1++;
+    bar1.innerHTML = (cnt1+" Player");
+	console.log(bar1+"chart bar 1");
+	}
+	else if(usrPercentage<=59){
+	var bar2 = document.getElementById("bar2")
+	let cnt2=0;
+	cnt2++;
+    bar2.innerHTML = (cnt2+" Player");
+	console.log(bar2+"chart bar 2");
+	}
+	else if(usrPercentage<=69){
+		var bar3 = document.getElementById("bar3");
+	let cnt3=0;
+	cnt3++;
+    bar3.innerHTML = (cnt3+" Player");
+	console.log(bar3+"chart bar 3");
+	}
+	else if(usrPercentage<=79){
+		var bar4 = document.getElementById("bar4");
+
+	let cnt4=0;
+	cnt4++;
+    bar4.innerHTML = (cnt4+" Player");
+	console.log(bar4+"chart bar 4");
+	}
+	else if(usrPercentage<=89){
+		var bar5 = document.getElementById("bar5");
+
+	let cnt5=0;
+	cnt5++;
+    bar5.innerHTML = (cnt5+" Player");
+	console.log(bar5+"chart bar 5");
+	}
+	else if(usrPercentage<=99){
+	var bar6 = document.getElementById("bar6");
+	let cnt6=0;
+	cnt6++;
+    bar6.innerHTML = (cnt6+" Player");
+	console.log(bar6+"chart bar 6");
+	}
+	else if(usrPercentage==100){
+		var bar7 = document.getElementById("bar7");
+	let cnt7=0;
+	cnt7++;
+    bar7.innerHTML = (cnt7+" Player");
+	console.log(bar7+"chart bar 7");
+	}
 }
