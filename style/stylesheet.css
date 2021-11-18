@@ -137,9 +137,24 @@ button:hover{
 .multiplySign{
     font-weight: bolder;
     font-size: 350%;
-
 }
 
 table > img{
     object-fit: cover;
+}
+
+#closeXModalButton{
+    display: inline-block;
+    float: right;
+    /*align-items: right;
+    margin-left: auto; 
+    margin-right: 0;*/
+    cursor: pointer;
+
+}
+#chartHeader{
+    display: inline-block;
+    margin: 0 auto;
+    font-size: 170%;
+    font-family: 'Source Sans Pro', sans-serif;
 }

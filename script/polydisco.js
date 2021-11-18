@@ -6,10 +6,12 @@ var usrQuestionCount=0;
 var seed1;
 var seed2;
 var QuestionCounter = 0;
-var Questions=[seed1,seed2,correctAns];
+var Questions=[];
 var playerDataBuffer = [" "];
 var femalegenderpercent=0;
 var malegenderpercent=0;
+var totalPlayerCount = 0;
+var usrPercentage = 0;
 
 
 // Task 2
@@ -22,11 +24,12 @@ function Register(){
     var gender =  document.getElementById('gender').value;
     var notice = document.getElementById("notice");
 
-    if(gender == "Female"){
+    if(gender == "female"){
         femalegenderpercent++;
     }else{
         malegenderpercent++;
     }
+    totalPlayerCount++
 
     if(fName !="" && lName != "" && age != "" && email != "" && gender != ""){
         document.getElementById("notice").innerHTML = "";
@@ -70,6 +73,7 @@ chartModal.addEventListener("click", function(){ //Disabling modal and activatin
     document.getElementById('modalBgChart').className += ' closeModalChart';
 });*/
 
+
 function disableModal(){
     document.getElementById('modalBg').classList.remove('activateModal');
 }
@@ -77,7 +81,6 @@ function disableModal(){
 function disableModalChart(){
     document.getElementById('modalBgChart').classList.remove('activateModalChart');
 }
-
 
 
 function resetForm(){
@@ -189,6 +192,7 @@ function checkAnswer(){
     showall();
 }
 
+
 function findPercentageScore(){
     //this makes sure that the class only gets added once
     if(!(document.getElementById('modalBgChart').classList.contains('activateModalChart'))){
@@ -198,25 +202,34 @@ function findPercentageScore(){
     document.getElementById("showPercentage").innerHTML = "";
     usrQuestionCount = usrCorrectAns+usrIncorrectAns;
     console.log(usrQuestionCount);
-    var usrPercentage=((usrCorrectAns)/usrQuestionCount)*100;
-    console.log(usrPercentage);
+    usrPercentage=((usrCorrectAns)/usrQuestionCount)*100;
+    console.log(usrPercentage+ " usrPercentage");
     var date=new Date();
     var showValue = `Total number of questions: ${usrQuestionCount}\nPercentage score: ${Math.floor(usrPercentage)}%\nCurrent date: ${date}`;
     console.log(showValue);
 
     document.getElementById("showPercentage").innerHTML = showValue;
     resetForm();
+    showfreq();
 
 //    disableModal();
 }
 
-function showfreq(){
-	var fbar = `${femalegenderpercent}%`;
-    console.log(mbar);
-	var mbar = `${malegenderpercent}%`;
 
+function showfreq(){
+    var totalplayercnt = totalPlayerCount;
+
+	var fbar = Math.floor((femalegenderpercent/totalplayercnt)*100);
+	var mbar = Math.floor((malegenderpercent/totalplayercnt)*100);
+
+    console.log(mbar + "malegenderpercent");
+    console.log(fbar + "femalegenderpercent");
+    
+    
 	document.getElementById("malebar").style.width = mbar;
 	document.getElementById("femalebar").style.width = fbar;
+    console.log(mbar + "malegenderpercent After assign");
+    console.log(fbar + "femalegenderpercent After assign");
 
 	if(usrPercentage<50){
     	var bar1 = document.getElementById("bar1");

@@ -1,229 +1,164 @@
 <!DOCTYPE html>
 <html>
-  <head lang="">
-    <meta charset='utf-8'>
-    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-    <title>Poly Disco
-    </title>
-    <link rel='stylesheet' href='style/stylesheet.css'>
-    <link rel='preconnect' href='https://fonts.googleapis.com'>
-    <link rel='preconnect' href='https://fonts.gstatic.com' crossorigin>
-    <link href='https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&family=Roboto+Mono&family=Zen+Kurenaido&display=swap' rel='stylesheet'> 
-    <link href='https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@600&display=swap' rel='stylesheet'> 
-    <!-- <link rel='icon' href='⨴'> -->
-    <script src='script/polydisco.js' >
-    </script>
-  </head>
-  <body>
-    <div class='main'>
-      <div id='body'>
-        <!--Task 1  -->
-        <form name = 'registrationForm' id='nameForm'>
-          <div id='header'>
-            <img src='asset/header.png' alt="headerImg">
-          </div>
-          <div id='notice'>
-          </div>
-          <label>First Name 
-          </label>
-          <br>
-          <input class='ffrom' id='fName' type='text' minlength='3' required>
-          <br>
-          <br>
-          <label>Last Name 
-          </label>
-          <br>
-          <input class='ffrom' id='lName' type='text' minlength='3' required>
-          <br>
-          <br>
-          <label >Date of Birth
-          </label>
-          <br>
-          <input class='ffrom' id='dob' type='date' min='2009-01-01' max='2013-12-31' >
-          <br>
-          <br>
-          <label >Gender
-          </label>
-          <br>
-          <select id='gender'>
-            <option value='' disabled selected>Select your option
-            </option>
-            <option class='ffrom' value='female'>Female
-            </option>
-            <option class='ffrom' value='male'>Male
-            </option>
-          </select>
-          <br>
-          <br>
-          <label>Email
-          </label>
-          <br>
-          <input pattern='^[a-zA-Z0-9]+@gmail\.com$' title='Must be a gmail.com domain' class='ffrom' type='email' id='email'  >
-          <!-- pattern='@[gmail.com]' -->
-          <br>
-          <br>
-          <!--Task 9-->
-          <!-- Hidden area -->
-          <div id="hideTextarea" class='hideTextarea'>
-            <label  id='showPercentageLb'>Percentage Score
-            </label>
-            <div class='addBreak'>
-            </div>
-            <textarea id='showPercentage' cols='53' rows='4'  disabled >
-            </textarea>
-            <div class='addBreak'>
-            </div>
-            <div class='addBreak'>
-            </div>
-            <label id='showAllPlayersLb'>All Players
-            </label>
-            <div class='addBreak'>
-            </div>
-            <textarea id='showAllPlayers' cols='53' rows='4'  disabled >
-            </textarea>
-            <div class='addBreak'>
-            </div>
-            <div class='addBreak'>
-            </div>
-          </div>
-          <!-- Hidden area End -->
-          <!-- Task 3 -->
-          <button class='ffrom' type='button' id='registerButton' onclick='Register()' >Register
-          </button>&nbsp;
-          <button type='button' id='startBtn' onclick='PlayGame()' disabled >Start
-          </button>&nbsp;
-          <button class='activateModal' type='button' id='percentScoreBtn' onclick='findPercentageScore()' disabled>Percentage Score
-          </button>				
-        </form>
-      </div>
-    </div>
 
+<head lang="">
+	<meta charset='utf-8'>
+	<meta http-equiv='X-UA-Compatible' content='IE=edge'>
+	<title>Poly Disco </title>
+	<link rel='stylesheet' href='style/stylesheet.css'>
+	<link rel='preconnect' href='https://fonts.googleapis.com'>
+	<link rel='preconnect' href='https://fonts.gstatic.com' crossorigin>
+	<link href='https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&family=Roboto+Mono&family=Zen+Kurenaido&display=swap' rel='stylesheet'>
+	<link href='https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@600&display=swap' rel='stylesheet'>
+	<link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600&display=swap" rel="stylesheet"> 
+	<!-- <link rel='icon' href='⨴'> -->
+	<script src='script/polydisco.js'>
+	</script>
+</head>
 
-    <div id='modalBgChart' class='modalBgChart'>
-      <div id='modalChart'>
-        <form>
-        <label>Gender
-        </label>
-        <table>
-          <tr >
-            <td>
-              <p>Male
-              </p>
-            </td>
-            <td>
-              <img style="vertical-align: bottom;" id="malebar" src="asset/barchartcolor.jpg" height="50" alt="image">
-            </td>
-          </tr>
-          <tr>
-            <td >
-              <p>Female
-              </p>
-            </td>
-            <td>
-              <img style="vertical-align: bottom;" id="femalebar" src="asset/barchartcolor2.jpg" height="50" alt="image">
-            </td>
-          </tr>
-        </table>
-        <label name='percentchart'>Players percent in each range
-        </label>
-        <table>
-          <tr>
-            <td>&#60;50
-            </td>
-            <td>
-              <img style="vertical-align: bottom;"  src="asset/barchartcolor2.jpg" width="50"  height="50" alt="image" >
-            </td>	
-            <td>
-            </td>			
-          </tr>
-          <tr>
-            <td >50-59
-            </td>
-            <td colspan="7">
-              <img style="vertical-align: bottom;"  src="asset/barchartcolor.jpg" width="60"  height="50" alt="image" >
-            </td>	
-            <td id='bar2'>
-            </td>			
-          </tr>
-          <tr>
-            <td >60-69
-            </td>
-            <td colspan="7">
-              <img style="vertical-align: bottom;"  src="asset/yellow.jpg" width="70"  height="50" alt="image">
-            </td>		
-            <td id='bar3'>
-            </td>
-          </tr>
-          <tr>
-            <td>70-79
-            </td>
-            <td colspan="7">
-              <img style="vertical-align: bottom;" src="asset/pink.jpg" width="80"  height="50" alt="image">
-            </td>
-            <td id='bar4'>
-            </td>			
-          </tr>
-          <tr>
-            <td>
-            </td>
-            <td colspan="7">
-              <img style="vertical-align: bottom;"  src="asset/green.jpg" width="90"  height="50" alt="image" >
-            </td>
-            <td id='bar5'>
-            </td>			
-          </tr>
-          <tr>
-            <td >90-99
-            </td>
-            <td colspan="7">
-              <img style="vertical-align: bottom;"  src="asset/orange.jpg" width="99"  height="50" alt="image">
-            </td>	
-            <td id='bar6'>
-            </td>			
-          </tr>
-          <tr>
-            <td>100
-            </td>
-            <td colspan="7" >
-              <img style="vertical-align: bottom;" height="50" src="asset/blue.jpg" width="100" alt="image">
-            </td>
-            <td id='bar7'>
-            </td>			
-          </tr>
-        </table>
-        <br>
-        <button type="button" id="exitChartModal" onclick='disableModalChart()'>Exit</button>
-        </form>
-    </div>
-    </div>
-
-
-  <div id='modalBg' class='modalBg'> 
-    <div class='modal'>
-      <form name='modalForm'>
-        <div id="answerResponse"> 
-        </div>
-        <input class='question' id='numvalue1' type='text' disabled readonly>
-        <span class="multiplySign">×
-        </span>
-        <input class='question' type='text' id='numvalue2' disabled readonly>
-        <br>
-        <br>
-        <input onblur="checkUserInput()" type='number' id='usrAns'>
-        <br>
-        <br>
-        <br>
-        <button type='button' onclick='checkAnswer()' id='acceptBtn' >Accept
-        </button>
-        <!--Task 8-->
-        <button type='button' onclick='PlayGame()' class ='button' id='nextBtn'>Next
-        </button>
-        <!--Task 7-->
-        <button type='button' onclick='findPercentageScore();disableModal();' id='endBtn' >End
-        </button> 
-     </form>
-  	</div>
-  </div>
-
+<body>
+	<div class='main'>
+		<div id='body'>
+			<!--Task 1  -->
+			<form name='registrationForm' id='nameForm'>
+				<div id='header'> <img src='asset/header.png' alt="headerImg"> </div>
+				<div id='notice'> </div>
+				<label>First Name </label>
+				<br>
+				<input selected class='ffrom' id='fName' type='text' minlength='3' required>
+				<br>
+				<br>
+				<label>Last Name </label>
+				<br>
+				<input class='ffrom' id='lName' type='text' minlength='3' required>
+				<br>
+				<br>
+				<label>Date of Birth </label>
+				<br>
+				<input class='ffrom' id='dob' type='date' min='2009-01-01' max='2013-12-31'>
+				<br>
+				<br>
+				<label>Gender </label>
+				<br>
+				<select id='gender'>
+					<option value='' disabled selected>Select your option </option>
+					<option class='ffrom' value='female'>Female </option>
+					<option class='ffrom' value='male'>Male </option>
+				</select>
+				<br>
+				<br>
+				<label>Email </label>
+				<br>
+				<input pattern='^[a-zA-Z0-9]+@gmail\.com$' title='Must be a gmail.com domain' class='ffrom' type='email' id='email'>
+				<!-- pattern='@[gmail.com]' -->
+				<br>
+				<br>
+				<!--Task 9-->
+				<!-- Hidden area -->
+				<div id="hideTextarea" class='hideTextarea'>
+					<label id='showPercentageLb'>Percentage Score </label>
+					<div class='addBreak'> </div>
+					<textarea id='showPercentage' cols='53' rows='4' disabled> </textarea>
+					<div class='addBreak'> </div>
+					<div class='addBreak'> </div>
+					<label id='showAllPlayersLb'>All Players </label>
+					<div class='addBreak'> </div>
+					<textarea id='showAllPlayers' cols='53' rows='4' disabled> </textarea>
+					<div class='addBreak'> </div>
+					<div class='addBreak'> </div>
+				</div>
+				<!-- Hidden area End -->
+				<!-- Task 3 -->
+				<button class='ffrom' type='button' id='registerButton' onclick='Register()'>Register </button>&nbsp;
+				<button type='button' id='startBtn' onclick='PlayGame()' disabled>Start </button>&nbsp;
+				<button class='activateModal' type='button' id='percentScoreBtn' onclick='findPercentageScore()' disabled>Percentage Score </button>
+			</form>
+		</div>
+	</div>
+	<div id='modalBgChart' class='modalBgChart'>
+		<div id='modalChart'>
+			<form>
+				<div align="right" id="closeXModalButton" onclick="disableModalChart()"><span>&#10060;</span> </div><br>
+				<div id="chartHeader">Your Statistics</div><br>
+				<label>Gender </label>
+				<hr>
+				<table>
+					<tr>
+						<td>
+							<p>Male </p>
+						</td>
+						<td> <img style="vertical-align: bottom;" id="malebar" src="asset/barchartcolor.jpg" height="40" alt="image"> </td>
+					</tr>
+					<tr>
+						<td>
+							<p>Female </p>
+						</td>
+						<td> <img style="vertical-align: bottom;" id="femalebar" src="asset/barchartcolor2.jpg" height="40" alt="image"> </td>
+					</tr>
+				</table>
+				<label>Players percent in each range </label>
+				<hr>
+				<table>
+					<tr>
+						<td>&#60;50 </td>
+						<td> <img style="vertical-align: bottom;" src="asset/barchartcolor2.jpg" height="30" alt="image"> </td>
+						<td id='bar1'> </td>
+					</tr>
+					<tr>
+						<td>50-59 </td>
+						<td colspan="3"> <img style="vertical-align: bottom;" src="asset/barchartcolor.jpg" height="30" alt="image"> </td>
+						<td id='bar2'> </td>
+					</tr>
+					<tr>
+						<td>60-69 </td>
+						<td colspan="3"> <img style="vertical-align: bottom;" src="asset/yellow.jpg" height="30" alt="image"> </td>
+						<td id='bar3'> </td>
+					</tr>
+					<tr>
+						<td>70-79 </td>
+						<td colspan="3"> <img style="vertical-align: bottom;" src="asset/pink.jpg" height="30" alt="image"> </td>
+						<td id='bar4'> </td>
+					</tr>
+					<tr>
+						<td>80-89 </td>
+						<td colspan="3"> <img style="vertical-align: bottom;" src="asset/green.jpg" height="30" alt="image"> </td>
+						<td id='bar5'> </td>
+					</tr>
+					<tr>
+						<td>90-99 </td>
+						<td colspan="3"> <img style="vertical-align: bottom;" src="asset/orange.jpg" height="30" alt="image"> </td>
+						<td id='bar6'> </td>
+					</tr>
+					<tr>
+						<td>100 </td>
+						<td colspan="3"> <img style="vertical-align: bottom;"  src="asset/blue.jpg" height="30" alt="image"> </td>
+						<td id='bar7'> </td>
+					</tr>
+				</table>
+				<!-- <button type="button" id="exitChartModal" onclick='disableModalChart()'>Exit</button> -->
+			</form>
+		</div>
+	</div>
+	<div id='modalBg' class='modalBg'>
+		<div class='modal'>
+			<form name='modalForm'>
+				<div id="answerResponse"> </div>
+				<input class='question' id='numvalue1' type='text' disabled readonly> <span class="multiplySign">×</span>
+				<input class='question' type='text' id='numvalue2' disabled readonly>
+				<br>
+				<br>
+				<input onblur="checkUserInput()" type='number' id='usrAns'>
+				<br>
+				<br>
+				<br>
+				<button type='button' onclick='checkAnswer()' id='acceptBtn'>Accept </button>
+				<!--Task 8-->
+				<button type='button' onclick='PlayGame()' class='button' id='nextBtn'>Next </button>
+				<!--Task 7-->
+				<button type='button' onclick='findPercentageScore();disableModal();' id='endBtn'>End </button>
+			</form>
+		</div>
+	</div>
 </body>
+
 </html>
