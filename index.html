@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head lang="">
 	<meta charset='utf-8'>
@@ -11,6 +11,7 @@
 	<link href='https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&family=Roboto+Mono&family=Zen+Kurenaido&display=swap' rel='stylesheet'>
 	<link href='https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@600&display=swap' rel='stylesheet'>
 	<link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600&display=swap" rel="stylesheet"> 
+	<link rel="icon" href="asset/websiteicon.png">
 	<!-- <link rel='icon' href='⨴'> -->
 	<script src='script/polydisco.js'>
 	</script>
@@ -25,7 +26,7 @@
 				<div id='notice'> </div>
 				<label>First Name </label>
 				<br>
-				<input selected class='ffrom' id='fName' type='text' minlength='3' required>
+				<input class='ffrom' id='fName' type='text' minlength='3' required>
 				<br>
 				<br>
 				<label>Last Name </label>
@@ -78,8 +79,8 @@
 	<div id='modalBgChart' class='modalBgChart'>
 		<div id='modalChart'>
 			<form>
-				<div align="right" id="closeXModalButton" onclick="disableModalChart()"><span>&#10060;</span> </div><br>
-				<div id="chartHeader">Your Statistics</div><br>
+				<div id="chartHeader">Your Statistics</div>
+				<div id="closeXModalButton" onclick="disableModalChart()"><span>&#10060;</span> </div><br>
 				<label>Gender </label>
 				<hr>
 				<table>
@@ -87,13 +88,19 @@
 						<td>
 							<p>Male </p>
 						</td>
-						<td> <img style="vertical-align: bottom;" id="malebar" src="asset/barchartcolor.jpg" height="40" alt="image"> </td>
+						<td> <img style="vertical-align: bottom;" id="malebar" src="asset/barchartcolor.jpg" width="1" height="35" alt="image"> </td>
+						<td>
+							<p id="malepercent"></p>
+						</td>
 					</tr>
 					<tr>
 						<td>
 							<p>Female </p>
 						</td>
-						<td> <img style="vertical-align: bottom;" id="femalebar" src="asset/barchartcolor2.jpg" height="40" alt="image"> </td>
+						<td> <img style="vertical-align: bottom;" id="femalebar" src="asset/barchartcolor2.jpg" width="1" height="35" alt="image"> </td>
+						<td>
+							<p id="femalepercent"></p>
+						</td>
 					</tr>
 				</table>
 				<label>Players percent in each range </label>
@@ -101,37 +108,37 @@
 				<table>
 					<tr>
 						<td>&#60;50 </td>
-						<td> <img style="vertical-align: bottom;" src="asset/barchartcolor2.jpg" height="30" alt="image"> </td>
+						<td> <img id="bar1img" style="vertical-align: bottom;" src="asset/barchartcolor2.jpg" width="1" height="30" alt="image"> </td>
 						<td id='bar1'> </td>
 					</tr>
 					<tr>
 						<td>50-59 </td>
-						<td colspan="3"> <img style="vertical-align: bottom;" src="asset/barchartcolor.jpg" height="30" alt="image"> </td>
+						<td > <img id="bar2img" style="vertical-align: bottom;" src="asset/barchartcolor.jpg" width="1" height="30" alt="image"> </td>
 						<td id='bar2'> </td>
 					</tr>
 					<tr>
 						<td>60-69 </td>
-						<td colspan="3"> <img style="vertical-align: bottom;" src="asset/yellow.jpg" height="30" alt="image"> </td>
+						<td > <img id="bar3img" style="vertical-align: bottom;" src="asset/yellow.jpg" width="1" height="30" alt="image"> </td>
 						<td id='bar3'> </td>
 					</tr>
 					<tr>
 						<td>70-79 </td>
-						<td colspan="3"> <img style="vertical-align: bottom;" src="asset/pink.jpg" height="30" alt="image"> </td>
+						<td > <img id="bar4img" style="vertical-align: bottom;" src="asset/pink.jpg" width="1" height="30" alt="image"> </td>
 						<td id='bar4'> </td>
 					</tr>
 					<tr>
 						<td>80-89 </td>
-						<td colspan="3"> <img style="vertical-align: bottom;" src="asset/green.jpg" height="30" alt="image"> </td>
+						<td > <img id="bar5img" style="vertical-align: bottom;" src="asset/green.jpg" width="1" height="30" alt="image"> </td>
 						<td id='bar5'> </td>
 					</tr>
 					<tr>
 						<td>90-99 </td>
-						<td colspan="3"> <img style="vertical-align: bottom;" src="asset/orange.jpg" height="30" alt="image"> </td>
+						<td > <img id="bar6img" style="vertical-align: bottom;" src="asset/orange.jpg" width="1" height="30" alt="image"> </td>
 						<td id='bar6'> </td>
 					</tr>
 					<tr>
 						<td>100 </td>
-						<td colspan="3"> <img style="vertical-align: bottom;"  src="asset/blue.jpg" height="30" alt="image"> </td>
+						<td > <img id="bar7img" style="vertical-align: bottom;"  src="asset/blue.jpg" width="1" height="30" alt="image"> </td>
 						<td id='bar7'> </td>
 					</tr>
 				</table>
@@ -159,6 +166,14 @@
 			</form>
 		</div>
 	</div>
+
+	<p>
+		<a href="http://jigsaw.w3.org/css-validator/check/referer">
+	    	<img style="border:0;width:88px;height:31px" src="http://jigsaw.w3.org/css-validator/images/vcss-blue" alt="Valid CSS!" />
+	    </a>
+	</p>
+
+
 </body>
 
 </html>
