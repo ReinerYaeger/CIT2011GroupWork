@@ -267,7 +267,7 @@ function showfreq() {
         cnt3++;
         let cntPlayerPercentage3 = Math.floor((cnt3/totalPlayerCount)*100);
 
-        bar3.innerHTML = (cntPlayerPercentage3 + " cntPlayerPercentage2");
+        bar3.innerHTML = (cntPlayerPercentage3 + " %");
         document.getElementById('bar3img').width = cntPlayerPercentage3;
         console.log(bar3 + "chart bar 3");
     } else if (usrPercentage <= 79) {
