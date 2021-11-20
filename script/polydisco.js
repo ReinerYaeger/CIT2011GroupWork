@@ -184,9 +184,6 @@ function checkAnswer() {
         //works
         //passing data to task 13
         sstatus = 'Correct';
-        var useranswer = document.getElementById("usrAns").value;
-        Questiondata = [num1 + "*" + num2 + "=" + useranswer];
-        showall();
     } else {
         document.getElementById("answerResponse").innerHTML = "<span style='color: red'>Incorrect</span>";
         usrIncorrectAns += 1;
@@ -194,6 +191,9 @@ function checkAnswer() {
         console.log("Incorrect: " + usrIncorrectAns);
         sstatus = 'Incorrect';
     }
+    var useranswer = document.getElementById("usrAns").value;
+        Questiondata = [num1 + "*" + num2 + "=" + useranswer];
+        showall();
 }
 
 
