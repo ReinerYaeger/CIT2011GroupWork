@@ -37,6 +37,15 @@ function Register() {
     var email = document.getElementById("email").value;
     var gender = document.getElementById('gender').value;
     var notice = document.getElementById("notice");
+    
+    if (fName != "" && lName != "" && age != "" && email != "" && gender != "") {
+        document.getElementById("notice").innerHTML = "";
+    } else {
+        notice.innerHTML = "<span style= 'font-weight:bold; ;color: red;'>Please Complete all fields </span><hr>";
+        document.getElementById("nameForm").scrollIntoView();
+        return false;
+    }
+
     totalPlayerCount++;
 
     gendertotal = gendertotal + 1;
@@ -47,28 +56,6 @@ function Register() {
     }
     femalegenderpercent = (femalecount / gendertotal) * 100;
     malegenderpercent = (malecount / gendertotal) * 100;
-
-
-    if (fName != "" && lName != "" && age != "" && email != "" && gender != "") {
-        document.getElementById("notice").innerHTML = "";
-    } else {
-        notice.innerHTML = "<span style= 'font-weight:bold; ;color: red;'>Please Complete all fields </span><hr>";
-        document.getElementById("nameForm").scrollIntoView();
-        return false;
-    }
-
-    var returnValue = true;
-
-    if (fName.trim() == "") {
-        notice.innerHTML = "<span style= 'font-weight:bold; ;color: red;'>Please Complete all fields </span><hr>";
-        returnValue = false;
-    } else if (lName.trim() == "") {
-        notice.innerHTML = "<span style= 'font-weight:bold; ;color: red;'>Please Complete all fields </span><hr>";
-        returnValue = false;
-    } else if (email.trim() == "") {
-        notice.innerHTML = "<span style= 'font-weight:bold; ;color: red;'>Please Complete all fields </span><hr>";
-        returnValue = false;
-    }
 
     PlayersData = [fName, lName, age];
     console.log(PlayersData + "firstname last name age");
